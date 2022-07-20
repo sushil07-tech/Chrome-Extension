@@ -1,0 +1,38 @@
+{
+    "name": "YouTube Bookmarks",
+    "version": "1.0.0",
+    "description": "Saves time Stamps of youtube video",
+    "permissions": ["storage","tabs"],
+    "host_permissions":["https://*.youtube.com/*"],
+    "background":{
+        "service_worker":"background.js"
+    },
+    "content_scripts": [
+        {
+            "matches":["https://*.youtube.com/*"],
+            "js":["contentScript.js"]
+        }
+    ],
+    "web_accessible_resources": [
+        {
+            "resources": [
+                "images/bookmark.png",
+                "images/play.png",
+                "images/delete.png",
+                "images/save.png"
+            ],
+            "matches":["https://*.youtube.com/*"]
+        }
+    ],
+    "action": {
+        "defualt_icon":{
+            "16": "images/ext-icon.png",
+            "24": "images/ext-icon.png",
+            "32": "images/ext-icon.png"
+
+        },
+        "defualt_title": "Yotube Bookmarks",
+        "defualt_popup": "popup.html"
+    },
+    "manifest_version": 3
+}
